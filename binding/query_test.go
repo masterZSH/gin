@@ -23,8 +23,7 @@ type TestQuery struct {
 func TestBind(t *testing.T) {
 	var qb queryBinding
 	var obj TestQuery
-	r, err := http.NewRequest("get", "/", nil)
-	assert.Nil(t, err)
+	r, _ := http.NewRequest("get", "/", nil)
 	q := r.URL.Query()
 	q.Set("test", "foo")
 	r.URL.RawQuery = q.Encode()
